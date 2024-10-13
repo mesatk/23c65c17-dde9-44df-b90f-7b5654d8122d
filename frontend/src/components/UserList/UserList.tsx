@@ -22,7 +22,8 @@ const UserList: React.FC<UserListProps> = ({ onEditUser, searchTerm }) => {
     setLoading(true);
     try {
       const response = await getUsers(searchTerm, page, pageSize);
-      setUsers(response.data.users);
+      console.log(response.data);
+      setUsers(response.data.data);
       setTotal(response.data.total);
     } catch (error) {
       console.error("Error fetching users:", error);
