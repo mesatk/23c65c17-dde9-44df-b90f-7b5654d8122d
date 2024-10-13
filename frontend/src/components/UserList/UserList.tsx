@@ -67,6 +67,7 @@ const UserList: React.FC<UserListProps> = ({ onEditUser, searchTerm }) => {
           setPage(page);
           setPageSize(pageSize);
         },
+        position: ['bottomCenter']
       }}
     />
   );

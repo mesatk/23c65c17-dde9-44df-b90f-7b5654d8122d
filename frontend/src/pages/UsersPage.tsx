@@ -3,6 +3,7 @@ import { Button, Modal } from 'antd';
 import UserList from '../components/UserList/UserList';
 import UserForm from '../components/UserForm/UserForm';
 import SearchInput from '../components/SearchInput/SearchInput';
+import { containerStyle, buttonStyle, titleStyle } from '../styles/UsersPage.styles';
 
 const UsersPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,14 +31,14 @@ const UsersPage: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <h1>User Management</h1>
+    <div style={containerStyle}>
+      <h1 style={titleStyle}>User Management</h1>
 
       {/* Arama inputu */}
       <SearchInput onSearch={handleSearch} />
 
       {/* Yeni kullanıcı eklemek için buton */}
-      <Button type="primary" onClick={openAddUserModal} style={{ marginBottom: 16 }}>
+      <Button type="primary" onClick={openAddUserModal} style={buttonStyle}>
         Add New User
       </Button>
 

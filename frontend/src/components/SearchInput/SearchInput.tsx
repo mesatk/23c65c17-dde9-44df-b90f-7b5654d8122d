@@ -12,7 +12,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
       placeholder="Search users"
       onSearch={onSearch}
       enterButton="Search"
-      style={{ marginBottom: 16 }}
+      style={searchInputStyle}
     />
   );
 };

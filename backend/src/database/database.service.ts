@@ -55,14 +55,20 @@ export class DatabaseService implements OnModuleInit {
 
   async createDatabase() {
     const result = await this.client.query(
-      `SELECT 1 FROM pg_database WHERE datname='USERDOT';`,
+      `SELECT 1 FROM pg_database WHERE datname='${this.configService.get<string>('DB_NAME')}';`,
     );
 
     if (result.rows.length === 0) {
-      await this.client.query('CREATE DATABASE "USERDOT";');
-      console.log('Veritabanı oluşturuldu: USERDOT');
+      await this.client.query(
+        `CREATE DATABASE "${this.configService.get<string>('DB_NAME')}";`,
+      );
+      console.log(
+        `Veritabanı oluşturuldu: ${this.configService.get<string>('DB_NAME')}`,
+      );
     } else {
-      console.log('Veritabanı zaten var: USERDOT');
+      console.log(
+        `Veritabanı zaten var: ${this.configService.get<string>('DB_NAME')}`,
+      );
     }
   }
 
