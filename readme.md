@@ -33,3 +33,27 @@ This is a fullstack project consisting of a **Node.js backend** and a **React fr
 ```bash
     npm start
 ```
+
+The backend will run at http://localhost:3000
+
+## Setting up the Frontend
+
+1. **Navigate to the frontend directory:**
+
+```bash
+    cd frontend
+```
+
+1. **Navigate to the frontend directory:**
+
+```bash
+    npm install
+```
+
+1. **Navigate to the frontend directory:**
+
+```bash
+    npm run dev
+```
+
+The frontend will run at http://localhost:5173
