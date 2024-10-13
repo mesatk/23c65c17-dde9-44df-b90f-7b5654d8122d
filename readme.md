@@ -6,7 +6,7 @@ This is a fullstack project consisting of a **Node.js backend** and a **React fr
 
 - Node.js (version 14+)
 - PostgreSQL
-- npm or yarn
+- npm
 
 ## Setting up the Backend
 
