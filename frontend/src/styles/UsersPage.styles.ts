@@ -2,11 +2,11 @@ import { CSSProperties } from "react";
 
 export const containerStyle: CSSProperties = {
   display: "flex",
-  flexDirection: "column", // İçeriği dikey olarak alt alta sıralar
-  alignItems: "center", // İçeriği yatayda ortalar
-  justifyContent: "center", // İçeriği dikeyde ortalar (isteğe bağlı)
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
   padding: 20,
-  minHeight: "100vh", // Sayfanın tamamını kapsar
+  minHeight: "100vh",
 };
 
 export const buttonStyle: CSSProperties = {
@@ -14,6 +14,6 @@ export const buttonStyle: CSSProperties = {
 };
 
 export const titleStyle: CSSProperties = {
-  textAlign: "center", // Başlığı ortalar
+  textAlign: "center",
   marginBottom: 20,
 };

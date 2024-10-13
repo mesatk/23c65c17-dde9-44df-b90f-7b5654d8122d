@@ -9,40 +9,40 @@ import {
 } from 'class-validator';
 
 export class CreateUserDto {
-  @IsString() // String tipinde olmalı
-  @IsNotEmpty() // Boş olamaz
+  @IsString()
+  @IsNotEmpty()
   name: string;
 
-  @IsString() // String tipinde olmalı
-  @IsNotEmpty() // Boş olamaz
+  @IsString()
+  @IsNotEmpty()
   surname: string;
 
-  @IsEmail() // Geçerli bir e-posta olmalı
-  @IsNotEmpty() // Boş olamaz
+  @IsEmail()
+  @IsNotEmpty()
   email: string;
 
-  @IsString() // String tipinde olmalı
-  @MinLength(6) // Minimum 6 karakter
-  @MaxLength(20) // Maksimum 20 karakter
+  @IsString()
+  @MinLength(6)
+  @MaxLength(20)
   password: string;
 
-  @IsString() // String tipinde olmalı
-  @IsNotEmpty() // Boş olamaz
+  @IsString()
+  @IsNotEmpty()
   phone: string;
 
-  @IsNumber() // Sayı olmalı
-  @IsOptional() // Opsiyonel alan
+  @IsNumber()
+  @IsOptional()
   age?: number;
 
-  @IsString() // String tipinde olmalı
-  @IsNotEmpty() // Boş olamaz
+  @IsString()
+  @IsNotEmpty()
   country: string;
 
-  @IsString() // String tipinde olmalı
-  @IsNotEmpty() // Boş olamaz
+  @IsString()
+  @IsNotEmpty()
   district: string;
 
-  @IsString() // String tipinde olmalı
-  @IsOptional() // Opsiyonel alan
+  @IsString()
+  @IsOptional()
   role?: string;
 }

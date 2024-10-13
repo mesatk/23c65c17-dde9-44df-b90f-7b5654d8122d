@@ -7,18 +7,18 @@ import { containerStyle, buttonStyle, titleStyle } from '../styles/UsersPage.sty
 
 const UsersPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingUser, setEditingUser] = useState<any>(null);  // Düzenlenen kullanıcı bilgisi
-  const [searchTerm, setSearchTerm] = useState('');            // Arama terimi
+  const [editingUser, setEditingUser] = useState<any>(null);  
+  const [searchTerm, setSearchTerm] = useState('');
 
   // Yeni kullanıcı ekleme için modal açma
   const openAddUserModal = () => {
-    setEditingUser(null);  // Yeni kullanıcı ekleme
+    setEditingUser(null);
     setIsModalOpen(true);
   };
 
   // Kullanıcı düzenleme için modal açma
   const openEditUserModal = (user: any) => {
-    setEditingUser(user);  // Düzenlenen kullanıcı
+    setEditingUser(user);
     setIsModalOpen(true);
   };
 
@@ -34,18 +34,14 @@ const UsersPage: React.FC = () => {
     <div style={containerStyle}>
       <h1 style={titleStyle}>User Management</h1>
 
-      {/* Arama inputu */}
       <SearchInput onSearch={handleSearch} />
 
-      {/* Yeni kullanıcı eklemek için buton */}
       <Button type="primary" onClick={openAddUserModal} style={buttonStyle}>
         Add New User
       </Button>
 
-      {/* Kullanıcı listesi */}
       <UserList onEditUser={openEditUserModal} searchTerm={searchTerm} />
 
-      {/* Kullanıcı ekleme/düzenleme için modal */}
       <Modal
         title={editingUser ? "Edit User" : "Add New User"}
         open={isModalOpen}

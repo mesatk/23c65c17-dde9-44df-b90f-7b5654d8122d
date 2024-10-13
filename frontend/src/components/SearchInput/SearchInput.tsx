@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input } from 'antd';
-import { searchInputStyle, containerStyle } from './SearchInput.styles';
+import { searchInputStyle } from './SearchInput.styles';
 
 interface SearchInputProps {
   onSearch: (value: string) => void;

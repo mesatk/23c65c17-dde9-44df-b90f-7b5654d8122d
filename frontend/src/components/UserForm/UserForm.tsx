@@ -27,7 +27,7 @@ const UserForm: React.FC<UserFormProps> = ({ user, closeModal }) => {
       } else {
         await saveUser(values);
       }
-      closeModal();  // İşlem bittiğinde modalı kapat
+      closeModal();
     } catch (error) {
       console.error("Error saving/updating user:", error);
     }

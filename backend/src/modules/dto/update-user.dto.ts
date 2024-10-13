@@ -10,45 +10,45 @@ import {
 } from 'class-validator';
 
 export class UpdateUserDto {
-  @IsInt() // Sayısal ve integer olmalı
-  @IsNotEmpty() // Boş olamaz, güncellenecek kaydın id'si zorunludur
+  @IsInt()
+  @IsNotEmpty()
   id: number;
 
-  @IsString() // String tipinde olmalı
-  @IsOptional() // Opsiyonel, sadece güncellenmek istenirse gönderilir
+  @IsString()
+  @IsOptional()
   name?: string;
 
-  @IsString() // String tipinde olmalı
-  @IsOptional() // Opsiyonel
+  @IsString()
+  @IsOptional()
   surname?: string;
 
-  @IsEmail() // Geçerli bir e-posta formatında olmalı
-  @IsOptional() // Opsiyonel
+  @IsEmail()
+  @IsOptional()
   email?: string;
 
-  @IsString() // String tipinde olmalı
-  @MinLength(6) // Minimum 6 karakter
-  @MaxLength(20) // Maksimum 20 karakter
-  @IsOptional() // Opsiyonel
+  @IsString()
+  @MinLength(6)
+  @MaxLength(20)
+  @IsOptional()
   password?: string;
 
-  @IsString() // String tipinde olmalı
-  @IsOptional() // Opsiyonel
+  @IsString()
+  @IsOptional()
   phone?: string;
 
-  @IsNumber() // Sayı olmalı
-  @IsOptional() // Opsiyonel
+  @IsNumber()
+  @IsOptional()
   age?: number;
 
-  @IsString() // String tipinde olmalı
-  @IsOptional() // Opsiyonel
+  @IsString()
+  @IsOptional()
   country?: string;
 
-  @IsString() // String tipinde olmalı
-  @IsOptional() // Opsiyonel
+  @IsString()
+  @IsOptional()
   district?: string;
 
-  @IsString() // String tipinde olmalı
-  @IsOptional() // Opsiyonel
+  @IsString()
+  @IsOptional()
   role?: string;
 }

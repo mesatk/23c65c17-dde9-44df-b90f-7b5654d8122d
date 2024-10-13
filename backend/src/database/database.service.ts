@@ -6,15 +6,6 @@ import { Client } from 'pg';
 export class DatabaseService implements OnModuleInit {
   private client: Client;
 
-  // constructor() {
-  //   this.client = new Client({
-  //     host: 'localhost',
-  //     port: 5432,
-  //     user: 'postgres',
-  //     password: '3728',
-  //     database: 'postgres',
-  //   });
-  // }
   constructor(private readonly configService: ConfigService) {
     this.client = new Client({
       host: this.configService.get<string>('DB_HOST'), // .env dosyasından host
