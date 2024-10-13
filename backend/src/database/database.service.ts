@@ -1,17 +1,27 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { Client } from 'pg';
 
 @Injectable()
 export class DatabaseService implements OnModuleInit {
   private client: Client;
 
-  constructor() {
+  // constructor() {
+  //   this.client = new Client({
+  //     host: 'localhost',
+  //     port: 5432,
+  //     user: 'postgres',
+  //     password: '3728',
+  //     database: 'postgres',
+  //   });
+  // }
+  constructor(private readonly configService: ConfigService) {
     this.client = new Client({
-      host: 'localhost',
-      port: 5432,
-      user: 'postgres',
-      password: '3728',
-      database: 'postgres',
+      host: this.configService.get<string>('DB_HOST'), // .env dosyasından host
+      port: this.configService.get<number>('DB_PORT'), // .env dosyasından port
+      user: this.configService.get<string>('DB_USER'), // .env dosyasından user
+      password: this.configService.get<string>('DB_PASSWORD'), // .env dosyasından password
+      database: this.configService.get<string>('DB_INIT'), // .env dosyasından veritabanı adı
     });
   }
 
@@ -25,11 +35,11 @@ export class DatabaseService implements OnModuleInit {
 
     // USERDOT veritabanına bağlan
     this.client = new Client({
-      host: 'localhost',
-      port: 5432,
-      user: 'postgres',
-      password: '3728',
-      database: 'USERDOT',
+      host: this.configService.get<string>('DB_HOST'),
+      port: this.configService.get<number>('DB_PORT'),
+      user: this.configService.get<string>('DB_USER'),
+      password: this.configService.get<string>('DB_PASSWORD'),
+      database: this.configService.get<string>('DB_NAME'),
     });
 
     await this.client.connect();

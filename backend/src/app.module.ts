@@ -1,23 +1,25 @@
-// import { Module } from '@nestjs/common';
-// import { AppController } from './app.controller';
-// import { AppService } from './app.service';
-
-// @Module({
-//   imports: [],
-//   controllers: [AppController],
-//   providers: [AppService],
-// })
-// export class AppModule {}
-
-
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { UserController } from './modules/user/user.controller';
 import { UserService } from './modules/user/user.service';
 import { DatabaseService } from './database/database.service';
+import { APP_PIPE } from '@nestjs/core';
+import { ValidationPipe } from '@nestjs/common';
 
 @Module({
-  imports: [],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+  ],
   controllers: [UserController],
-  providers: [UserService, DatabaseService], // Servisleri ekliyoruz
+  providers: [
+    UserService,
+    DatabaseService,
+    {
+      provide: APP_PIPE,
+      useClass: ValidationPipe,
+    },
+  ],
 })
 export class AppModule {}

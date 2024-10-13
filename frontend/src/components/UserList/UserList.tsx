@@ -22,7 +22,6 @@ const UserList: React.FC<UserListProps> = ({ onEditUser, searchTerm }) => {
     setLoading(true);
     try {
       const response = await getUsers(searchTerm, page, pageSize);
-      console.log(response.data);
       setUsers(response.data.data);
       setTotal(response.data.total);
     } catch (error) {
@@ -37,13 +36,14 @@ const UserList: React.FC<UserListProps> = ({ onEditUser, searchTerm }) => {
     { title: 'Name', dataIndex: 'name', key: 'name' },
     { title: 'Surname', dataIndex: 'surname', key: 'surname' },
     { title: 'Email', dataIndex: 'email', key: 'email' },
+    // { title: 'Password', dataIndex: 'password', key: 'password' },
     { title: 'Phone', dataIndex: 'phone', key: 'phone' },
     { title: 'Age', dataIndex: 'age', key: 'age' },
     { title: 'Country', dataIndex: 'country', key: 'country' },
     { title: 'District', dataIndex: 'district', key: 'district' },
     { title: 'Role', dataIndex: 'role', key: 'role' },
-    { title: 'Created At', dataIndex: 'createdAt', key: 'createdAt', render: (date: string) => new Date(date).toLocaleString() },
-    { title: 'Updated At', dataIndex: 'updatedAt', key: 'updatedAt', render: (date: string) => new Date(date).toLocaleString() },  // Updated At sütunu
+    { title: 'Created At', dataIndex: 'createdAt', key: 'createdAt', render: (date: string) => new Date(Date.parse(date)).toLocaleString() },
+{ title: 'Updated At', dataIndex: 'updatedAt', key: 'updatedAt', render: (date: string) => new Date(Date.parse(date)).toLocaleString() },  // Updated At sütunu
     {
       title: 'Action',
       key: 'action',
