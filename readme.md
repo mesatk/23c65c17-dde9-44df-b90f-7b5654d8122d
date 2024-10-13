@@ -22,8 +22,8 @@ This is a fullstack project consisting of a **Node.js backend** and a **React fr
 ```bash
     DB_HOST=localhost
     DB_PORT=5432
-    DB_USER=postgres
-    DB_PASSWORD=3728
+    DB_USER=<user>
+    DB_PASSWORD=<password>
     DB_INIT=postgres
     DB_NAME=USERDOT
 ```
