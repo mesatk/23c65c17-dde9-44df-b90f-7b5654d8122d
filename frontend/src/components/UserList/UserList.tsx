@@ -32,18 +32,18 @@ const UserList: React.FC<UserListProps> = ({ onEditUser, searchTerm }) => {
   };
 
   const columns = [
-    { title: 'ID', dataIndex: 'id', key: 'id' },
-    { title: 'Name', dataIndex: 'name', key: 'name' },
-    { title: 'Surname', dataIndex: 'surname', key: 'surname' },
-    { title: 'Email', dataIndex: 'email', key: 'email' },
-    // { title: 'Password', dataIndex: 'password', key: 'password' },
-    { title: 'Phone', dataIndex: 'phone', key: 'phone' },
-    { title: 'Age', dataIndex: 'age', key: 'age' },
-    { title: 'Country', dataIndex: 'country', key: 'country' },
-    { title: 'District', dataIndex: 'district', key: 'district' },
-    { title: 'Role', dataIndex: 'role', key: 'role' },
-    { title: 'Created At', dataIndex: 'createdAt', key: 'createdAt', render: (date: string) => new Date(Date.parse(date)).toLocaleString() },
-{ title: 'Updated At', dataIndex: 'updatedAt', key: 'updatedAt', render: (date: string) => new Date(Date.parse(date)).toLocaleString() },  // Updated At sütunu
+    { title: 'ID', dataIndex: 'id', key: 'id', width: 50, ellipsis: true },
+    { title: 'Name', dataIndex: 'name', key: 'name', width: 100, ellipsis: true },
+    { title: 'Surname', dataIndex: 'surname', key: 'surname', width: 100, ellipsis: true },
+    { title: 'Email', dataIndex: 'email', key: 'email', width: 200, ellipsis: true },
+    { title: 'Password', dataIndex: 'password', key: 'password', width: 100, ellipsis: true },
+    { title: 'Phone', dataIndex: 'phone', key: 'phone', width: 120, ellipsis: true },
+    { title: 'Age', dataIndex: 'age', key: 'age', width: 70, ellipsis: true },
+    { title: 'Country', dataIndex: 'country', key: 'country', width: 100, ellipsis: true },
+    { title: 'District', dataIndex: 'district', key: 'district', width: 75, ellipsis: true },
+    { title: 'Role', dataIndex: 'role', key: 'role', width: 75, ellipsis: true },
+    { title: 'Created At', dataIndex: 'createdat', key: 'createdat', width: 100, ellipsis: true, render: (date: string) => new Date(Date.parse(date)).toLocaleString() },
+    { title: 'Updated At', dataIndex: 'updatedat', key: 'updatedat', width: 100, ellipsis: true, render: (date: string) => new Date(Date.parse(date)).toLocaleString() },
     {
       title: 'Action',
       key: 'action',
