@@ -2,7 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'antd';
 import { getUsers } from '../../api/users';
 
-const UserList: React.FC<{ onEditUser: (user: any) => void }> = ({ onEditUser }) => {
+interface UserListProps {
+  onEditUser: (user: any) => void;
+  searchTerm: string;
+}
+
+const UserList: React.FC<UserListProps> = ({ onEditUser, searchTerm }) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -11,12 +16,12 @@ const UserList: React.FC<{ onEditUser: (user: any) => void }> = ({ onEditUser })
 
   useEffect(() => {
     fetchUsers();
-  }, [page, pageSize]);
+  }, [page, pageSize, searchTerm]);
 
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const response = await getUsers('', page, pageSize);
+      const response = await getUsers(searchTerm, page, pageSize);
       setUsers(response.data.users);
       setTotal(response.data.total);
     } catch (error) {
@@ -29,7 +34,15 @@ const UserList: React.FC<{ onEditUser: (user: any) => void }> = ({ onEditUser })
   const columns = [
     { title: 'ID', dataIndex: 'id', key: 'id' },
     { title: 'Name', dataIndex: 'name', key: 'name' },
+    { title: 'Surname', dataIndex: 'surname', key: 'surname' },
     { title: 'Email', dataIndex: 'email', key: 'email' },
+    { title: 'Phone', dataIndex: 'phone', key: 'phone' },
+    { title: 'Age', dataIndex: 'age', key: 'age' },
+    { title: 'Country', dataIndex: 'country', key: 'country' },
+    { title: 'District', dataIndex: 'district', key: 'district' },
+    { title: 'Role', dataIndex: 'role', key: 'role' },
+    { title: 'Created At', dataIndex: 'createdAt', key: 'createdAt', render: (date: string) => new Date(date).toLocaleString() },
+    { title: 'Updated At', dataIndex: 'updatedAt', key: 'updatedAt', render: (date: string) => new Date(date).toLocaleString() },  // Updated At sütunu
     {
       title: 'Action',
       key: 'action',

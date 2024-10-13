@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Input } from 'antd';
 
-const SearchInput: React.FC = () => {
-  const [search, setSearch] = useState('');
+interface SearchInputProps {
+  onSearch: (value: string) => void;
+}
 
-  const onSearch = (value: string) => {
-    setSearch(value);
-    // Burada arama fonksiyonunu UserList bileşenine gönderebilirsiniz
-  };
-
+const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
   return (
     <Input.Search
       placeholder="Search users"
       onSearch={onSearch}
+      enterButton="Search"
       style={{ marginBottom: 16 }}
     />
   );
